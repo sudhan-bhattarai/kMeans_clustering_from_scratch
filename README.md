@@ -1,0 +1,2 @@
+# k_means_clustering_from_scratch_to_solve_facility_location_problem
+K means clustering to solve facility location problem:
