@@ -51,7 +51,7 @@ class kMeans_from_scratch:
         x, y = 0, 0
         n_assign = self.nodes_assignment(self.N, fa, assign)
         x, y = np.mean(self.grid[n_assign,0]), np.mean(self.grid[n_assign,1])
-        self.assigned_nodes.append(self.grid[n_assign])
+        self.assigned_nodes.append(self.grid[n_assign].tolist())
         if abs(x-self.fac[fa,0]) >= self.t:
           self.fac[fa,0] = x
         if abs(y-self.fac[fa,1]) >= self.t:
@@ -67,10 +67,10 @@ class kMeans_from_scratch:
     plt.legend(loc = 1)
     plt.show()
 
-tol, iter, f = 0.00001, 10000, 3
+tol, iter, f = 0.01, 10000, 3
 kM = kMeans_from_scratch(grid, tol, iter, f)
 kM.kMeans(3)
 kM.plot()
-print('final facilities:\n\n', kM.fac)
+print('final facilities:\n', kM.fac)
 for i in range(len(list(kM.assigned_nodes[-kM.nof:]))):
-  print('\n Assigned nodes for facility {}'.format(i),'\n', list(kM.assigned_nodes[-kM.nof:][i]))
+  print('\n Assigned nodes for facility {}:'.format(i),'\n', list(kM.assigned_nodes[-kM.nof:][i]))
