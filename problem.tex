@@ -1,0 +1,32 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{left=1in,right=1in,top=1in,bottom=1in}
+\title{Facility location problem}
+\author{Sudhan Bhattarai}
+\date{October 2020}
+
+\begin{document}
+
+\maketitle
+
+\section*{Notations}
+m = number of facilities, index: i = 0, 1, 2, ... \\
+n = number of customer nodes, index: j = 0, 1, 2, ... \\
+k = X and Y coordinates: (0, 1) \\
+$d_{jk}$ = k coordinate (X, Y) of customer j \\
+
+\section*{Decision variables}
+$f_{ik}$ = coordinate k of facility i \\
+$x_{ij}$ = distance between facility i and customer j \\
+$y_{ij}$ = 1 if customer j is assigned to cluster of facility i, 0 otherwise \\
+
+\section*{Problem formulation}
+\subsection*{objective function}
+minimize: $\sum_{i,j} y_{ij} x_{ij}$ \hspace{0.5cm} (non-linear) \hfill (1)
+\subsection*{s.t:}
+$\sum_j y_{ij} = 1$ \hspace{1cm}\forall i \hfill (2) \\
+$x_{ij}$ = euclidean distance (f_i, d_j) \hspace{1cm} \forall i,j \hfill (3) \\
+$y_{ij} \in (0, 1)$ \hfill (4) \\
+
+\end{document}
